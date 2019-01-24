@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Exercise" representedClassName="Exercise" syncable="YES" codeGenerationType="class">
+        <attribute name="exerciseName" attributeType="String" syncable="YES"/>
+        <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MainCategory" inverseName="exercises" inverseEntity="MainCategory" syncable="YES"/>
+        <relationship name="progress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Progress" inverseName="progressParentCategory" inverseEntity="Progress" syncable="YES"/>
+    </entity>
+    <entity name="MainCategory" representedClassName="MainCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="mainName" attributeType="String" syncable="YES"/>
+        <relationship name="exercises" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="parentCategory" inverseEntity="Exercise" syncable="YES"/>
+    </entity>
+    <entity name="Progress" representedClassName=".Progress" syncable="YES" codeGenerationType="class">
+        <attribute name="currentDateTime" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="weight" attributeType="String" syncable="YES"/>
+        <relationship name="progressParentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="progress" inverseEntity="Exercise" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Progress" positionX="-9.12109375" positionY="-7.5" width="128" height="88"/>
+        <element name="MainCategory" positionX="-425.3515625" positionY="-20.62109375" width="128" height="73"/>
+        <element name="Exercise" positionX="-219.2734375" positionY="-8.04296875" width="128" height="88"/>
+    </elements>
+</model>
