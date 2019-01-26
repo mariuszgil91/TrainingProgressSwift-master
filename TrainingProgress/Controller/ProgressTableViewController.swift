@@ -75,7 +75,7 @@ class ProgressTableViewController: UITableViewController {
         var textField = UITextField()
         let alert = UIAlertController(title: "Save Your Progress", message: "", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let action = UIAlertAction(title: "Save", style: .default) { (action) in
+        let action = UIAlertAction(title: "Save", style: .destructive, handler: { (action) in
             
             //what will happen when clock the save progress button on uialert
             if let currentCategory = self.selectedCategory1{
@@ -86,7 +86,6 @@ class ProgressTableViewController: UITableViewController {
                         newPlan.currentDateTime = Date()
                         currentCategory.progressList.append(newPlan)
                         print("Progress saved to realm")
-                    
                     }
                 }catch{
                     print("Error saving weight\(error)")
@@ -95,15 +94,18 @@ class ProgressTableViewController: UITableViewController {
             
            self.tableView.reloadData()
             
-        }
+        })
         
-
-        alert.addTextField { (alertTextField) in
+        alert.addTextField(configurationHandler: { (alertTextField) in
             alertTextField.placeholder = "Add current weight"
+            alertTextField.text = ""
+            action.isEnabled = !alertTextField.text!.isEmpty
+            alertTextField.keyboardType = UIKeyboardType.numberPad
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: alertTextField, queue: OperationQueue.main) { (notification) in
+                action.isEnabled = !alertTextField.text!.isEmpty
+            }
             textField = alertTextField
-            textField.keyboardType = UIKeyboardType.numberPad
-            
-        }
+        })
         
         alert.addAction(action)
         alert.addAction(cancelAction)
@@ -111,7 +113,7 @@ class ProgressTableViewController: UITableViewController {
         alert.view.backgroundColor = UIColor.black
         present(alert, animated: true, completion: nil)
         
-    
+        
     }
     
     @IBAction func historyButtonPressed(_ sender: UIBarButtonItem) {
@@ -186,3 +188,17 @@ extension ProgressTableViewController: SwipeTableViewCellDelegate{
     }
     
 }
+//
+//extension UIAlertController {
+//
+//    func isTextValid(_ text: String) -> Bool {
+//        return text.characters.count > 0
+//    }
+//
+//    func textDidChangeInLoginAlert() {
+//        if let textField = textFields?[0].text,
+//            let action = actions.last {
+//            action.isEnabled = isTextValid(textField)
+//        }
+//    }
+//}
