@@ -16,7 +16,7 @@ class HistoryChartViewController: UIViewController {
 
     var selectedCategory2: Results<Progress>?
     @IBOutlet var barView: BarChartView!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +45,10 @@ class HistoryChartViewController: UIViewController {
         barView.data = chartData
         
         chartDataSet.colors = [UIColor.orange]
-        chartDataSet.valueTextColor = FlatOrange()
-        chartDataSet.valueColors = [UIColor.orange]
+        //chartDataSet.valueTextColor = FlatOrange()
+        //chartDataSet.valueColors = [UIColor.orange]
         chartDataSet.highlightEnabled = false
-        barView.gridBackgroundColor = FlatOrange()
+        //barView.gridBackgroundColor = FlatOrange()
         barView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         //barView.leftAxis.axisMinimum = 0.0
         //barView.leftAxis.axisMaximum = 200.0

@@ -147,20 +147,31 @@
         <scene sceneID="qBz-zF-5A9">
             <objects>
                 <viewController id="G3D-aH-Mzw" customClass="HistoryChartViewController" customModule="TrainingProgress" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Y3v-bE-UFF" customClass="BarChartView" customModule="Charts">
+                    <view key="view" contentMode="scaleToFill" id="Ehe-ic-MZ1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66J-M1-FuZ" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="wQt-tB-noc"/>
+                        <constraints>
+                            <constraint firstItem="66J-M1-FuZ" firstAttribute="leading" secondItem="amM-51-DdX" secondAttribute="leading" id="Nyy-oF-7QC"/>
+                            <constraint firstItem="66J-M1-FuZ" firstAttribute="bottom" secondItem="amM-51-DdX" secondAttribute="bottom" id="Pjh-Kf-9kO"/>
+                            <constraint firstItem="66J-M1-FuZ" firstAttribute="top" secondItem="amM-51-DdX" secondAttribute="top" id="rp2-Aa-r46"/>
+                            <constraint firstItem="66J-M1-FuZ" firstAttribute="trailing" secondItem="amM-51-DdX" secondAttribute="trailing" id="vM2-61-Sdc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="amM-51-DdX"/>
                     </view>
                     <connections>
-                        <outlet property="barView" destination="Y3v-bE-UFF" id="dDw-Tr-myc"/>
+                        <outlet property="barView" destination="66J-M1-FuZ" id="eUg-zH-t1f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMR-MX-9u9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3082" y="161"/>
+            <point key="canvasLocation" x="3080.8000000000002" y="160.56971514242881"/>
         </scene>
     </scenes>
 </document>
