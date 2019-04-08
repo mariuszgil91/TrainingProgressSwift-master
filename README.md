@@ -1,5 +1,6 @@
 # TrainingProgressSwift-master
-Screenshots
+Screenshots:
+
 
 ![IMG_1074](https://user-images.githubusercontent.com/45829413/55748426-efd9a080-5a3e-11e9-9182-50749748eee4.png)
 
